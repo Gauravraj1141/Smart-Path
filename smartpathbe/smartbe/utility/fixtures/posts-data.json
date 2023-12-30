@@ -1,0 +1,17 @@
+[
+    {
+      "model": "utility.UserStatus",
+      "pk":1,
+      "fields": {
+       "status_name": "Patient"
+      }
+    },
+    {
+      "model": "utility.UserStatus",
+      "pk":2,
+      "fields": {
+       "status_name": "Doctor"
+      }
+    }
+    
+]
