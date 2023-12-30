@@ -93,6 +93,7 @@ const BookAppointment = () => {
   }, []);
 
   return (
+    
     <div className="mt-10">
       <div className="mx-auto lg:w-[50%] md:w-[56%] sm:w-[90%] p-8 space-y-3 rounded-xl bg-[#bbffa0] text-black-100">
         <h1 className="text-3xl font-bold text-center  text-Black-800">
