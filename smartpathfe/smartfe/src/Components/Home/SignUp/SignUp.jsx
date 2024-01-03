@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 
-const SingUp = () => {
+const SignUp = () => {
   const [loader, setloader] = useState(false);
   const [responsemsg, setresponsemsg] = useState("");
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ const SingUp = () => {
   };
 
   return (
-    <div className="mt-16">
+    <div className="mt-20">
       <div className="mx-auto lg:w-[50%] md:w-[56%] sm:w-[90%] p-8 space-y-3 rounded-xl bg-[#adc1e9] text-black-100">
         <h1 className="text-3xl font-bold text-center text-red-800">Sign Up</h1>
         <form action="" className="space-y-6" onSubmit={handleSubmit}>
@@ -213,4 +213,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default SignUp;

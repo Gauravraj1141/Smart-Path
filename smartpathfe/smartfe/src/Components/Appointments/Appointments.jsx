@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { format } from 'date-fns';
 
 const Appointments = () => {
+
+  const navigate = useNavigate()
+  const userType = localStorage.getItem("userStatus")
+
   const [responsedata, setresponsedata] = useState([]);
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
+     
     axios
       .get("http://127.0.0.1:8000/doctor/fetch_appointments/", {
         headers: {
@@ -29,10 +34,19 @@ const Appointments = () => {
       .catch(function (error) {
         console.log(error);
       });
+
+        
+        if (userType !=2) {
+          navigate("/signIn");
+          return ; 
+        }  
+
   }, []);
 
+ 
+
   return (
-    <div className="mt-10">
+    <div className="mt-20">
     <div className="mx-auto   p-8 space-y-3 rounded-xl bg-[#5eaaf1] text-black-100">
     <h1 className="text-3xl font-bold text-center  text-Black-800">
            Appointments

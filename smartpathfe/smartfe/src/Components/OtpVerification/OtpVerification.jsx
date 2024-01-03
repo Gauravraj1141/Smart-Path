@@ -46,11 +46,12 @@ const OtpVerification = () => {
                     if (response.data.Status == 404) {
                         setresponsemsg(response.data.Message);
                         setloader(false)
+                        navigate("/signUp");
                     }
                     if (response.data.Status == 200) {
                         setloader(false)
                         setresponsemsg(response.data.Message);
-                        navigate("/singIn");
+                        navigate("/Success");
                     }
 
                     console.log(response);
@@ -63,7 +64,7 @@ const OtpVerification = () => {
 
 
     return (
-        <div className="mt-16">
+        <div className="mt-20">
 
             <div className="mx-auto  lg:w-[40%] md:w-[50%] sm:w-[90%] p-8 space-y-3 rounded-xl bg-[#adc1e9] text-black-100">
                 <h1 className="text-3xl font-bold text-center text-green-800">
@@ -97,7 +98,7 @@ const OtpVerification = () => {
                         )}
 
                         <button
-                            to="/singIn" type="submit"
+                            to="/signIn" type="submit"
                             className="block w-full p-3 text-center rounded-sm text-white bg-sky-700 text-xl "
                         >
                             Verify Otp

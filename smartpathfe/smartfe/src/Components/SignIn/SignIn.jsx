@@ -1,12 +1,25 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 
+
 const SignIn = () => {
+
+  const navigate = useNavigate();
+
+  const accessToken = localStorage.getItem("accessToken");
+  useEffect(() => {
+    if (accessToken) {
+      console.log("Access token is present");
+      navigate("/UserProfile");
+    }
+  }, [accessToken, navigate]);
+
+
   const [loader, setloader] = useState(false);
   const [responsemsg, setresponsemsg] = useState("");
-  const navigate = useNavigate();
+
 
   const [formData, setFormData] = useState({
     username: "",
@@ -62,12 +75,10 @@ const SignIn = () => {
             localStorage.setItem("userStatus",userStatus)
              
             if (userStatus == 1){
-
                 navigate("/bookappointment");
             }
             else if(userStatus == 2){
                 navigate("/appointment");
-
             }
             setloader(false);
           } else if (response.data.Status == 404) {
@@ -83,7 +94,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="mt-16">
+    <div className="mt-20">
       <div className="mx-auto  lg:w-[50%] md:w-[56%] sm:w-[90%] p-8 space-y-3 rounded-xl bg-[#adc1e9] text-black-100">
         <h1 className="text-3xl font-bold text-center text-red-800">Sign In</h1>
         <form action="" className="space-y-6" onSubmit={handleSubmit}>
@@ -168,7 +179,7 @@ const SignIn = () => {
             )}
 
             <button
-              to="/singIn"
+              to="/signIn"
               type="submit"
               className="block w-full p-3 text-center rounded-sm text-white bg-sky-700 text-xl "
             >
